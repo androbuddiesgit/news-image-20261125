@@ -8,44 +8,52 @@ news-image-20261125](https://make.fun/badge/news-image-20261125.svg)](https://ma
 
 # 25 November 2026 — The World in One Image
 
-**Bounty:** [Sum up 25 November's world news in one image](https://make.fun/) — $100 · make.fun
-**Date covered:** Wednesday, 25 November 2026 · **Image:** 1024×1024 JPEG, 291,890 bytes
+Entri untuk bounty **news-image-20261125** di [make.fun](https://make.fun/bounty/news-image-20261125) — hadiah **$100**. Satu gambar ukuran 1024×1024 yang merangkum hari Rabu, 25 November 2026, dalam wujud halaman depan koran berjudul **"THE WORLD IN ONE IMAGE"**.
 
-## The stories
+## Empat cerita utama
 
-| Panel | Story | What happened |
-|---|---|---|
-| Top left | **Drone boats sink Russian warship** | Seven sea drones sank the corvette *Merkury* off Benghazi and hit the cargo ship *Angara*; Zelenskiy confirms the *Sparta II* strike too. |
-| Top right | **Riyadh tower hit again** | Houthi fighters strike the Saudi capital's tallest tower for the second time in a week; 11 people are wounded, Saudi civil defence says. |
-| Bottom left | **Iran claims three tankers hit mines** | Iran's Revolutionary Guard says three oil tankers caught fire after striking naval mines; the claim is unverified and no vessels are named. |
-| Bottom right | **Sarkozy corruption case to trial** | French officials order former president Nicolas Sarkozy and his wife Carla Bruni to stand trial; a first pre-trial hearing is set for 1 April 2027. |
+| # | Cerita |
+|---|--------|
+| 1 | **Drone laut menenggelamkan korvet Rusia.** Tujuh drone laut menenggelamkan korvet Merkury di lepas Benghazi, dan kapal kargo Angara ikut terkena. Presiden Zelenskiy mengonfirmasi serangan terhadap Sparta II. |
+| 2 | **Serangan ke menara tertinggi Riyadh.** Pejuang Houthi menyerang menara tertinggi di ibu kota Arab Saudi — kedua kalinya dalam seminggu. Pertahanan sipil Saudi melaporkan 11 orang terluka. |
+| 3 | **Klaim Iran soal tiga tanker terbakar.** Garda Revolusi Iran mengklaim tiga tanker minyak terbakar setelah terkena ranjau laut. Klaim ini belum terverifikasi secara independen dan tidak ada kapal yang disebut namanya — di dalam gambar klaim itu diberi label *unverified*. |
+| 4 | **Sarkozy dan Bruni diperintah ke pengadilan.** Mantan presiden Prancis Nicolas Sarkozy dan istrinya, Carla Bruni, diperintah menjalani persidangan kasus korupsi. Sidang praperadilan pertama dijadwalkan pada 1 April 2027. |
 
-**Also in the footer:** COP31 ends with no climate pact — first collapse since Copenhagen 2009 · Trump awards Rudy Giuliani the Medal of Freedom · England beat Australia by 8 wickets in the 2nd T20I · NATO to deploy early-warning aircraft in Poland · New analysis puts Russian war dead above 700,000.
+## Berita singkat di kaki halaman
 
-## Sources (all facts checked 25 November 2026)
+- **COP31** berakhir tanpa pakta iklim — kegagalan pertama sejak Copenhagen 2009.
+- **Trump** menganugerahkan Medal of Freedom kepada Rudy Giuliani.
+- **Inggris** mengalahkan Australia dengan 8 wicket di T20I kedua.
+- **NATO** mengerahkan pesawat peringatan dini di Polandia.
+- Analisis baru menyebut korban tewas Rusia sudah **melewati 700.000**.
 
-Major news sources — the four stories and five briefs above are the
-texts printed on the front page itself (see `work/build_frontpage.py`).
+## Sumber
 
-## How it was made
+Semua fakta di atas dicek pada 25 November 2026 dari sumber-sumber berita besar. Klaim yang belum terverifikasi — khususnya klaim Iran soal tanker — ditandai dengan jelas sebagai belum terverifikasi, baik di sini maupun di dalam gambar.
 
-The four panels are AI-generated photo-style illustrations (the photos
-themselves are illustrations, as the footer says); the front page —
-masthead, dateline, headlines, captions and footer — is drawn
-deterministically with Pillow, so every word is exactly legible. No
-fact in the image is invented: every number, name and outcome above
-comes from the listed sources. The Iran tanker claim is labelled
-unverified in the image itself.
+## Cara membuat gambarnya
 
-## Run it
+Keempat panel ilustrasi dibuat dengan gaya foto hasil AI. Masthead koran, judul, caption, dan footer tidak diserahkan ke model gambar: semuanya digambar secara deterministik dengan Pillow, supaya setiap kata terbaca persis seperti yang dimaksud. Gambar final lalu disimpan sebagai JPEG 1024×1024 dan disertakan di repo ini dalam bentuk base64 di dalam `main.py`.
+
+## Cara menjalankan
 
 ```sh
-python3 main.py        # writes /output/entry.png
+python3 main.py
 ```
 
-Pure stdlib, no network, no randomness. Running it twice produces
-byte-identical output (SHA-256 `3547d00f59e822dec2f98c088f313297973ca717a8b7674138977245a754844a`).
+Perintah itu mendekode gambar dan menulisnya ke `/output/entry.png` (folder `/output` dibuat otomatis bila belum ada). Tidak butuh dependensi di luar Python standar, tidak butuh jaringan, dan tidak ada unsur acak — dua kali jalan menghasilkan byte yang identik:
 
-## License
+- Ukuran: 291.890 byte
+- SHA-256: `3547d00f59e822dec2f98c088f313297973ca717a8b7674138977245a754844a`
 
-MIT — see [LICENSE](LICENSE).
+Untuk memeriksa ulang hasil tulisan, jalankan mode verifikasi:
+
+```sh
+python3 main.py --verify
+```
+
+Mode ini menulis ulang file, lalu membaca kembali isinya dan memeriksa ukuran, SHA-256, serta dimensi 1024×1024 — lalu mencetak hasil tiap pemeriksaan.
+
+## Lisensi
+
+MIT — lihat `LICENSE`.
